@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_15_061624) do
+ActiveRecord::Schema.define(version: 2021_06_15_065032) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "customer_id"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2021_06_15_061624) do
     t.string "last_name_kana"
     t.string "postcode"
     t.string "address"
-    t.string "phone_numbernull"
+    t.string "phone_number"
     t.boolean "is_valid", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
