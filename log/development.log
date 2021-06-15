@@ -423,3 +423,36 @@ Migrating to RenamePhoneNumbernullColumnToPhoneNumber (20210615065032)
   ↳ bin/rails:9
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to ChangeDataImageIdItems (20210615070140)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20210615070140_change_data_image_id_items.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aitems" ("id" integer NOT NULL PRIMARY KEY, "genre_id" integer DEFAULT NULL, "name" varchar DEFAULT NULL, "image_id" integer DEFAULT NULL, "introduction" text DEFAULT NULL, "price_excluding_tax" integer DEFAULT NULL, "is_active" boolean DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210615070140_change_data_image_id_items.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aitems" ("id","genre_id","name","image_id","introduction","price_excluding_tax","is_active","created_at","updated_at")
+                     SELECT "id","genre_id","name","image_id","introduction","price_excluding_tax","is_active","created_at","updated_at" FROM "items"[0m
+  ↳ db/migrate/20210615070140_change_data_image_id_items.rb:3
+  [1m[35m (2.5ms)[0m  [1m[35mDROP TABLE "items"[0m
+  ↳ db/migrate/20210615070140_change_data_image_id_items.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "items" ("id" integer NOT NULL PRIMARY KEY, "genre_id" integer DEFAULT NULL, "name" varchar DEFAULT NULL, "image_id" varchar DEFAULT NULL, "introduction" text DEFAULT NULL, "price_excluding_tax" integer DEFAULT NULL, "is_active" boolean DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210615070140_change_data_image_id_items.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "items" ("id","genre_id","name","image_id","introduction","price_excluding_tax","is_active","created_at","updated_at")
+                     SELECT "id","genre_id","name","image_id","introduction","price_excluding_tax","is_active","created_at","updated_at" FROM "aitems"[0m
+  ↳ db/migrate/20210615070140_change_data_image_id_items.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aitems"[0m
+  ↳ db/migrate/20210615070140_change_data_image_id_items.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210615070140"]]
+  ↳ bin/rails:9
+  [1m[35m (6.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
